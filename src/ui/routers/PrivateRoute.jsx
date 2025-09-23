@@ -4,7 +4,7 @@ import APP_ROUTERS from '../../commons/utils/utils';
 
 
 const PrivateRoute = ({children}) => {
-    const token = '';
+    const token = '1234';
     return token ? children : <Navigate to={APP_ROUTERS.LOGIN}/>
 }
 
