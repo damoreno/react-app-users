@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import useSpinnerStore from '../stores/useSpinnerStore';
 import useUserStorage from '../stores/useUserStorage';
 
-const userAuthHandler = (
+const useAuthHandler = (
     validateForm, 
     email, 
     password, 
@@ -23,4 +23,4 @@ const userAuthHandler = (
 }
     return {handlerSummit}
 }
-export default userAuthHandler;
+export default useAuthHandler;

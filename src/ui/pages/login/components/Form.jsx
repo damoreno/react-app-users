@@ -6,7 +6,7 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import Email from '@mui/icons-material/Email';
 import { useTranslation } from 'react-i18next';
-import userAuthHandler from '../../../hooks/userAuthHandler';
+import useAuthHandler from '../../../hooks/useAuthHandler';
 import useTogglePassword from '../../../hooks/useTogglePassword';
 
 
@@ -21,7 +21,7 @@ const [t] = useTranslation("global");
   const [password, setPassword] = useState();
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
-  const { handleSubmit } = userAuthHandler(
+  const { handleSubmit } = useAuthHandler(
     email,
     password,
     setEmailError,
