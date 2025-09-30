@@ -1,0 +1,50 @@
+{
+    "title": {
+        "login": "Login",
+        "welcome": "Welcome",
+        "userList": "User List"
+    },
+
+    "label": {
+        "mail": "Mail",
+        "password": "Password",
+        "itemsPerPagination": "Row per page:"
+    },
+
+    "button": {
+        "login": "Login",
+        "LogOut": "Log out"
+    },
+    
+    "menu": {
+        "home": "Home",
+        "user": "Users"
+    },
+
+    "columnName": {
+        "firstLastNames": "First and last names",
+        "email": "Email",
+        "role": "Role",
+        "status": "Status"
+    },
+
+    "text": {
+        "admin": "Administrator",
+        "user": "User",
+        "sales": "Sales",
+        "active": "Active"
+    },
+
+    "helperText": {
+        "incorrectFormatExample@mail.com": "Incorrect format, try: example@mail.com",
+        "theDataNotMatch": "The data does not match. Please try again.",
+        "thisFieldIsRequired": "This field is required. Please complete it to continue.",
+        "minFourLetters": "Must contain at least 4 letters.",
+        "invalidPhoneFormat": "Incorrect number format.",
+        "minEightCharacters": "The password must be at least 8 characters.",
+        "minOneSpecialOrNumber": "Must contain at least one number or special character (@, !, %).",
+        "minOneUppercase": "Must contain at least one capital letter.",
+        "passwordsMustMatch": "Passwords must match.",
+        "invalidFormat": "Invalid format (HH:MM)"
+    }
+}

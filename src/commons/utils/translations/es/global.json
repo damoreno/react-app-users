@@ -1,0 +1,50 @@
+{
+    "title": {
+        "login": "Iniciar sesión",
+        "welcome": "Bienvenido",
+        "userList": "Lista de usuarios"
+    },
+
+    "label": {
+        "mail": "Correo",
+        "password": "Contraseña",
+        "itemsPerPagination": "Fila por página:"
+    },
+
+    "button": {
+        "login": "Iniciar sesión",
+        "LogOut": "Cerrar la sesión"
+    },
+
+    "menu": {
+        "home": "Inicio",
+        "user": "Usuarios"
+    },
+
+    "columnName": {
+        "firstLastNames": "Nombres y apellidos",
+        "email": "Correo",
+        "role": "Role",
+        "status": "Estado"
+    },
+
+    "text": {
+        "admin": "Administrador",
+        "user": "usuario",
+        "sales": "Ventas",
+        "active": "Activo"
+    },
+
+    "helperText": {
+        "incorrectFormatExample@mail.com": "Formato incorrecto, prueba con: ejemplo@mail.com",
+        "theDataNotMatch": "Los datos no coinciden. Por favor intenta nuevamente.",
+        "thisFieldIsRequired": "El campo es obligatorio. Por favor completalo para continuar.",
+        "minFourLetters": "Debe contener al menos 4 letras.",
+        "invalidPhoneFormat": "Formato númerico incorrecto.",
+        "minEightCharacters": "La contraseña debe tener al menos 8 caracteres.",
+        "minOneSpecialOrNumber": "Debe contener al menos un número o carácter especial (@, !, %).",
+        "minOneUppercase": "Debe contener al menos una letra mayúscula.",
+        "passwordsMustMatch": "Las contraseñas deben coincidir.",
+        "invalidFormat": "Formato inválido (HH:MM)"
+    }
+}
