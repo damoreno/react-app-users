@@ -41,7 +41,7 @@
         "thisFieldIsRequired": "This field is required. Please complete it to continue.",
         "minFourLetters": "Must contain at least 4 letters.",
         "invalidPhoneFormat": "Incorrect number format.",
-        "minEightCharacters": "The password must be at least 8 characters.",
+        "minEightCharacters": "The password must be at least 6 characters.",
         "minOneSpecialOrNumber": "Must contain at least one number or special character (@, !, %).",
         "minOneUppercase": "Must contain at least one capital letter.",
         "passwordsMustMatch": "Passwords must match.",

@@ -1,0 +1,10 @@
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+    "user": {
+        "id": 1,
+        "name": "Marcelo Moreno",
+        "email": "test@example.com",
+        "rol": "admin",
+        "permissions": ["USER_LIST", "USER_CREATE", "USER_UPDATE", "USER_DELETE"]
+    }
+}

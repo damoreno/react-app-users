@@ -1,32 +1,47 @@
-import React, { useState } from 'react';
-import { Box, IconButton, InputAdornment, TextField } from '@mui/material';
-import { styles } from '../../../../commons/styles/constants/theme';
-import {width} from '../../../../commons/styles/constants/spaces';
+import { Box, Button, IconButton, InputAdornment, TextField } from '@mui/material';
+import { styles } from '../../../../common/styles/constants/theme';
+import {width} from '../../../../common/styles/constants/spaces';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import Email from '@mui/icons-material/Email';
-import { useTranslation } from 'react-i18next';
+
 import useAuthHandler from '../../../hooks/useAuthHandler';
 import useTogglePassword from '../../../hooks/useTogglePassword';
+import { gradient } from '../../../../common/styles/constants/colors';
+import useLoginForm from '../../../hooks/useLoginForm';
+import { useTranslation } from 'react-i18next';
 
+// const togglePasswordVisibility = () => {
+//   setShowPassword(!showPassword);
+// };
 
-const togglePasswordVisibility = () => {
-  setShowPassword(!showPassword);
-};
 
 
 const Form = () => {
+// Hook para manejar la logica de validacion del formulario login
+const {        
+      email,
+      setEmail,
+      password,
+      setPassword,
+      emailError,
+      setEmailError,
+      passwordError,
+      setPasswordError,
+      validateForm,
+      isFormValid,} = useLoginForm()
+// Hook para manejo de traduccion      
 const [t] = useTranslation("global");
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
-  const [emailError, setEmailError] = useState("");
-  const [passwordError, setPasswordError] = useState("");
-  const { handleSubmit } = useAuthHandler(
-    email,
-    password,
-    setEmailError,
-    setPasswordError
-  );
+// Hook para manejar la redireccion del usuario autenticado al sitio privado
+const { handleSubmit } = useAuthHandler(
+  validateForm,
+  setEmail,
+  setPassword,
+  email,
+  password,
+  setEmailError,
+  setPasswordError
+);
   
  const { showPassword, togglePasswordVisibility } = useTogglePassword();
   return (
@@ -39,14 +54,15 @@ const [t] = useTranslation("global");
           width: "100%",
         }}
       >
+        {/* caja de texto con email */}
         <TextField
           id="email"
           label={t("label.mail")}
           variant="standard"
           value={email}
           error={!!emailError}
-          helperText={emailError || " "}
-          oncChange={(e) => setEmail(e.target.value)}
+          helperText={emailError || ' '}
+          onChange={(e) => setEmail(e.target.value)}
           slotProps={{
             input: {
               endAdornment: (
@@ -57,7 +73,8 @@ const [t] = useTranslation("global");
             },
           }}
           sx={styles.textFieldInput}
-        />
+          />
+          {/* caja de texto con password*/}
         <TextField
           id="password"
           label={t("label.password")}
@@ -65,7 +82,7 @@ const [t] = useTranslation("global");
           type={showPassword ? "text" : "password"}
           value={password}
           error={!!passwordError}
-          helperText={passwordError || " "}
+          helperText={passwordError || ' '}
           onChange={(e) => setPassword(e.target.value)}
           slotProps={{
             input: {
@@ -86,6 +103,18 @@ const [t] = useTranslation("global");
           }}
           sx={styles.textFieldInput}
         />
+        <Box
+        sx={{ width: width.textFieldLogin,
+          marginTop: '10px',
+          display: 'flex',
+          justifyContent: 'center',
+        }}>
+        </Box>
+        
+        <Button sx={styles.buttonLogin(isFormValid,gradient)} onClick={handleSubmit}>
+          {t("button.login")}
+        </Button>
+
       </Box>
     </Box>
   )}

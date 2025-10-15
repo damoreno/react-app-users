@@ -1,14 +1,14 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
-const useUserStorage = create(
+const useUserStore = create(
   persist(
     (set) => ({
       email: '',
       name: '',
       role: '',
       permissions:[],
-      setUser: (email, name, role, permissions) => set({ email, name, role, permissions}),
+      setUser: (user) => set({ email: user.email, name: user.name, role: user.rol, permissions: user.permissions}),
       clearUser: () => set({ email: '', name: '', role: '', permissions: [] }),
     }),
     {
@@ -17,6 +17,4 @@ const useUserStorage = create(
   )
 )
 
-export default useUserStorage
-
-
+export default useUserStore

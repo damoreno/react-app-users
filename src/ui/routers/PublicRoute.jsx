@@ -1,9 +1,11 @@
 import {Navigate} from 'react-router-dom'
-import APP_ROUTERS from '../../commons/utils/utils';
 
+import { APP_ROUTERS } from '../../common/utils/router';
+import useAuthStore from '../stores/useAuthStore';
 
 const PublicRoute = ({ children }) => {
-    const token = ''
+    // si el token existe entonces se envia al sitio privado (Home)
+    const {token} = useAuthStore()
     return token ? <Navigate to={APP_ROUTERS.HOME} /> : children
 }
 

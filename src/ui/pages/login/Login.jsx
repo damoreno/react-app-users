@@ -1,41 +1,67 @@
-import {Avatar, Box, Paper} from "@mui/material";
+import {Avatar, Box, Paper, Typography} from "@mui/material";
 import Form from "./components/Form";
 
 const Login = () => {
-    return (
-        <Box sx={{
-            with: '100vw',
-            height: '100vh',
+  return (
+    <Box
+      sx={{
+        width: "100%",
+        height: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        background: "linear-gradient(135deg, #1a1a2e, #16213e, #53354a)",
+      }}
+    >
+      <Paper
+        elevation={6}
+        sx={{
+          width: { xs: "350px", sm: "400px" },
+          padding: 4,
+          borderRadius: 4,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          backdropFilter: "blur(10px)",
+          backgroundColor: "#e7f0fe",
+        }}
+      >
+        <Avatar
+          sx={{
+            width: 172,
+            height: 172,
+            background: "linear-gradient(135deg, #1a1a2e, #16213e, #53354a)",
+            mb: 2,
+          }}
+        />
+        <Form />
+        {/* Línea semitransparente */}
+        <Box
+          sx={{
+            marginTop: 4,
+            marginBottom: 2,
+            width: 'calc(100% + 64px)',
+            height: '30px',
+            background: 'linear-gradient(135deg, #1A1A2E, #16213E, #53354A)',
+          }}
+        />
+        {/* Enlaces */}
+        <Box
+          sx={{
             display: 'flex',
             justifyContent: 'center',
-            background: 'linear-gradient(135deg, #1a1a2e, #16213e, #53354a)'
-            
-        }}>
-            <Paper  
-            elevation={6}
-            sx={{
-                width: {xs: '350px', sm:'400px'},
-                padding:4,
-                borderRadius: 4,
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                backdropFilter: 'blur(10px)',
-                backgroundColor: '#e7f0fe'}}
-            >
-                <Avatar
-                sx={{
-                    width: 172,
-                    height: 172,
-                    background: 'linear-gradient(135deg, #1a1a2e, #16213e, #53354a)',
-                    mb: 2
-                }}
-                
-                />
-                <Form></Form>
-            </Paper>
+            mt: 2,
+            fontSize: '14px',
+          }}
+        >
+          <Typography variant="body2" sx={{ cursor: 'pointer', color: '#1A1A2E', fontSize: '17px' }}>
+            REGISTER
+          </Typography>
         </Box>
-    )
-}
+
+      </Paper>
+    </Box>
+  );
+};
 
 export default Login;

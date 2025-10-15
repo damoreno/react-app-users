@@ -1,7 +1,6 @@
 import AppRouters from "./routers/AppRouters";
 import { I18nextProvider } from "react-i18next";
-import i18n from "../commons/utils/translations/i18next.config"
-
+import i18n from "../common/utils/translations/i18next.config"
 
 const App = () => {
   return (

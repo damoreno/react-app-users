@@ -5,7 +5,8 @@ import Login from '../pages/login/Login';
 import Error404 from '../pages/Error404';
 import PublicRoute from './PublicRoute';
 import PrivateRoute from './PrivateRoute';
-import APP_ROUTERS from '../../commons/utils/utils';
+import { APP_ROUTERS } from '../../common/utils/router';
+
 
 
 const AppRouters = () => {
