@@ -5,6 +5,6 @@ export const logoutUser = () => {
         localStorage.removeItem(key)
     })
 
-    window.location.assign(APP_ROUTERS.login)
+    window.location.assign(APP_ROUTERS.LOGIN)
 
 }

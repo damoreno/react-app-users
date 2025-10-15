@@ -1,7 +1,13 @@
 import {Avatar, Box, Paper, Typography} from "@mui/material";
 import Form from "./components/Form";
+import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
+import { APP_ROUTERS } from "../../../common/utils/router";
 
 const Login = () => {
+  const [t] = useTranslation('global')
+  const navigate = useNavigate();
+
   return (
     <Box
       sx={{
@@ -54,8 +60,8 @@ const Login = () => {
             fontSize: '14px',
           }}
         >
-          <Typography variant="body2" sx={{ cursor: 'pointer', color: '#1A1A2E', fontSize: '17px' }}>
-            REGISTER
+          <Typography variant="body2" onClick={() => navigate(APP_ROUTERS.REGISTER)} sx={{ cursor: 'pointer', color: '#1A1A2E', fontSize: '17px' }}>
+            {t('button.register')}
           </Typography>
         </Box>
 

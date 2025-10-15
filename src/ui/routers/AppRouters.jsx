@@ -6,6 +6,7 @@ import Error404 from '../pages/Error404';
 import PublicRoute from './PublicRoute';
 import PrivateRoute from './PrivateRoute';
 import { APP_ROUTERS } from '../../common/utils/router';
+import Register from '../pages/login/Register';
 
 
 
@@ -20,7 +21,12 @@ const AppRouters = () => {
                         <Login />
                     </PublicRoute>
                 }
-
+                ></Route>
+                <Route path={APP_ROUTERS.REGISTER} element={
+                    <PublicRoute>
+                        <Register />
+                    </PublicRoute>
+                }
                 ></Route>
                 {/* Rutas privadas */}
                 <Route path={APP_ROUTERS.HOME} element={

@@ -6,14 +6,17 @@
     },
 
     "label": {
+        "name": "Nombre",
         "mail": "Correo",
         "password": "Contraseña",
+        "confirmPassword": "Confirmación de contraseña",
         "itemsPerPagination": "Fila por página:"
     },
 
     "button": {
         "login": "Iniciar sesión",
-        "LogOut": "Cerrar la sesión"
+        "LogOut": "Cerrar la sesión",
+        "register": "REGISTRATE"
     },
 
     "menu": {
@@ -45,6 +48,7 @@
         "minOneSpecialOrNumber": "Debe contener al menos un número o carácter especial (@, !, %).",
         "minOneUppercase": "Debe contener al menos una letra mayúscula.",
         "passwordsMustMatch": "Las contraseñas deben coincidir.",
-        "invalidFormat": "Formato inválido (HH:MM)"
+        "invalidFormat": "Formato inválido (HH:MM)",
+        "passAndConfirmNotMatch": "La contraseña y la confirmación deben coincidir."
     }
 }

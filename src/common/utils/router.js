@@ -2,6 +2,7 @@
 export const APP_ROUTERS = Object.freeze({
     //Rutas publicas
     LOGIN: "/login",
+    REGISTER: "/register",
     
     //Rutas Privadas
     HOME: "/home",
@@ -13,4 +14,6 @@ export const APP_ROUTERS = Object.freeze({
 //Rutas de servicios externos
 export const API_ROUTES = Object.freeze({
     LOGIN: "/auth/login",
+    REGISTER: "/auth/register",
+
 });
