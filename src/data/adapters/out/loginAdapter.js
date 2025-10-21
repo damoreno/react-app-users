@@ -1,8 +1,8 @@
 import { LoginModel } from "../../model/loginModel";
 
 
-const loginAdapter = (json) => {
- return new LoginModel(json.email, json.password);
+const loginAdapter = (email, password) => {
+ return {email, password};
 }
 
 export default loginAdapter;

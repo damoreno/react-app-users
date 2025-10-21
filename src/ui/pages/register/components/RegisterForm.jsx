@@ -1,4 +1,4 @@
-import { Box, Button, IconButton, InputAdornment, TextField } from '@mui/material';
+import { Alert, Box, Button, Collapse, IconButton, InputAdornment, TextField } from '@mui/material';
 import { styles } from '../../../../common/styles/constants/theme';
 import {width} from '../../../../common/styles/constants/spaces';
 import Visibility from '@mui/icons-material/Visibility';
@@ -11,6 +11,7 @@ import { gradient } from '../../../../common/styles/constants/colors';
 import { useTranslation } from 'react-i18next';
 import useRegisterForm from '../../../hooks/useRegisterForm';
 import useToggleConfirmPassword from '../../../hooks/useToggleConfirmPassword';
+import { useCallback, useEffect } from 'react';
 
 const RegisterForm = () => {
   console.log("Enter to Register form")
@@ -36,10 +37,18 @@ const {
     setConfirmPasswordError,
     validateForm,
     isFormValid} = useRegisterForm()
+
+const cleanForm = useCallback(() => {
+  setName('');
+  setEmail('');
+  setPassword('');
+  setConfirmPassword('')
+}, [setName, setEmail, setPassword, setConfirmPassword]);
+    
 // Hook para manejo de traduccion      
 const [t] = useTranslation("global");
 // Hook para manejar la redireccion del usuario autenticado al sitio privado
-const { handleSubmit } = useRegisterHandler(
+const { handleSubmit, successMessage } = useRegisterHandler(
   validateForm,
   name,
   email,
@@ -50,6 +59,13 @@ const { handleSubmit } = useRegisterHandler(
   setConfirmPasswordError
 );
   
+useEffect(() => {
+  if(successMessage){
+    cleanForm();
+  }
+
+}, [cleanForm, successMessage])
+
  const { showPassword, togglePasswordVisibility } = useTogglePassword();
   return (
     <Box sx={{ width: width.textFieldLogin }}>
@@ -61,6 +77,11 @@ const { handleSubmit } = useRegisterHandler(
           width: "100%",
         }}
       >
+        <Collapse in={!!successMessage}>
+          <Alert severity="success" sx={{ mb: 2 }}>
+            {successMessage}
+          </Alert>
+        </Collapse>
         {/* caja de texto con nombre */}
         <TextField
           id="name"

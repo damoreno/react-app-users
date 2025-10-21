@@ -1,4 +1,9 @@
 {
+    "messages":{
+        "userCreatedSuccessfully": "Usuario creado exitosamente",
+        "userDeletedSuccessfully": "Usuario eliminado exitosamente",
+        "errorUserCreate": "Error al crear usuario. Intente nuevamente."
+    },
     "title": {
         "login": "Iniciar sesión",
         "welcome": "Bienvenido",

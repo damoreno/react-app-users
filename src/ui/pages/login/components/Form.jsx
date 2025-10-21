@@ -34,13 +34,11 @@ const {
 const [t] = useTranslation("global");
 // Hook para manejar la redireccion del usuario autenticado al sitio privado
 const { handleSubmit } = useAuthHandler(
-  validateForm,
-  setEmail,
-  setPassword,
-  email,
-  password,
-  setEmailError,
-  setPasswordError
+    validateForm, 
+    email, 
+    password, 
+    setEmailError, 
+    setPasswordError
 );
   
  const { showPassword, togglePasswordVisibility } = useTogglePassword();
@@ -59,7 +57,8 @@ const { handleSubmit } = useAuthHandler(
           id="email"
           label={t("label.mail")}
           variant="standard"
-          value={email}
+          // value={email}
+          // value="admin@gmail.com"
           error={!!emailError}
           helperText={emailError || ' '}
           onChange={(e) => setEmail(e.target.value)}
@@ -80,7 +79,8 @@ const { handleSubmit } = useAuthHandler(
           label={t("label.password")}
           variant="standard"
           type={showPassword ? "text" : "password"}
-          value={password}
+          // value={password}
+          // value="admin@gmail.com"
           error={!!passwordError}
           helperText={passwordError || ' '}
           onChange={(e) => setPassword(e.target.value)}

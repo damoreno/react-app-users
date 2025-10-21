@@ -1,4 +1,9 @@
 {
+    "messages":{
+        "userCreatedSuccessfully": "User created successfully",
+        "userDeletedSuccessfully": "User deleted successfully",
+        "errorUserCreate": "Error create user. Try again."
+    },
     "title": {
         "login": "Login",
         "welcome": "Welcome",

@@ -6,7 +6,7 @@ import Error404 from '../pages/Error404';
 import PublicRoute from './PublicRoute';
 import PrivateRoute from './PrivateRoute';
 import { APP_ROUTERS } from '../../common/utils/router';
-import Register from '../pages/login/Register';
+import Register from '../pages/register/Register';
 
 
 

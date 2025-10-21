@@ -2,7 +2,7 @@ import { API_ROUTES } from "../../common/utils/router";
 import loginAdapter from "../../data/adapters/out/loginAdapter";
 export default class LoginRepository{
     static async login(email, password){
-        const URL_BASE = `${import.meta.env.VITE_API_URL}${API_ROUTES.LOGIN}`;
+        const URL_BASE = `${import.meta.env.VITE_API_URL_BASE}${API_ROUTES.LOGIN}`;
         
         try {
             const myHeaders = new Headers();
@@ -15,9 +15,9 @@ export default class LoginRepository{
                 redirect: 'follow'
             };
 
-            const response = await fetch("/json/login.json", requestOptions)
+            // const response = await fetch("/json/login.json", requestOptions)
             
-            //const response1 = await fetch(`${URL_BASE}`, requestOptions)
+            const response = await fetch(`${URL_BASE}`, requestOptions)
 
             if(!response.ok){
                 throw new Error("Authentication failed")
