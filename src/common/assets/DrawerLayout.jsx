@@ -29,7 +29,7 @@ import { logoutUser } from '../utils/logoutUser'
 import { LanguageSelect } from './LanguageSelect'
 import logoLogin from '../../common/assets/logo.webp'
 import useUserStore from '../../ui/stores/useUserStore'
-import { APP_ROUTERS } from '../utils/router'
+import { APP_ROUTES } from '../utils/router'
 
 const drawerWidth = 220
 
@@ -168,7 +168,7 @@ const DrawerLayout = ({ children }) => {
   }, [t, selected])
   
     useEffect(() => {
-    navigate(APP_ROUTERS.HOME)
+    navigate(APP_ROUTES.HOME)
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -263,7 +263,7 @@ const DrawerLayout = ({ children }) => {
             Icon={HomeIcon}
             onClick={() => {
               setSelected(t('menu.home'))
-              handleNavigation(APP_ROUTERS.HOME)
+              handleNavigation(APP_ROUTES.HOME)
             }}
           />
         </ListItem>
@@ -274,7 +274,7 @@ const DrawerLayout = ({ children }) => {
             Icon={GroupIcon}
             onClick={() => {
               setSelected(t('menu.user'))
-              handleNavigation(APP_ROUTERS.USER)
+              handleNavigation(APP_ROUTES.USER)
             }}
           />
         </ListItem>

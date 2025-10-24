@@ -1,4 +1,4 @@
-export class RegisterModel{
+export class UserModel{
     constructor(name, email, password){
         this.name = name;
         this.email = email;

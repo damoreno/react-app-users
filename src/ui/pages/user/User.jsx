@@ -1,6 +1,13 @@
+import { Box } from "@mui/material";
+import { Head } from "./components/Head";
+import TableGrid from "./components/TableGrid";
+
 const User = () => {
     return (
-        <div>User page</div>
+        <Box>
+            <Head></Head>
+            <TableGrid />
+        </Box>
     )
 }
 

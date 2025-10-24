@@ -3,7 +3,7 @@ import useSpinnerStore from '../stores/useSpinnerStore';
 import RegisterUseCase from '../../domain/login/registerUseCase';
 import { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { APP_ROUTERS } from '../../common/utils/router';
+import { APP_ROUTES } from '../../common/utils/router';
 
 
 const useRegisterHandler = (
@@ -24,7 +24,7 @@ const useRegisterHandler = (
 
   const redirectToLogin = useCallback(() => {
     console.log("Redirecciona a Login")
-    navigate(APP_ROUTERS.LOGIN)
+    navigate(APP_ROUTES.LOGIN)
   }, [navigate]);
 
   

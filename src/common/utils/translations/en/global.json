@@ -7,7 +7,8 @@
     "title": {
         "login": "Login",
         "welcome": "Welcome",
-        "userList": "User List"
+        "userList": "User List",
+        "addUser": "Add User"
     },
 
     "label": {
@@ -21,7 +22,8 @@
     "button": {
         "login": "Login",
         "LogOut": "Log out",
-        "register": "REGISTER"
+        "register": "REGISTER",
+        "back": "Volver"
     },
     
     "menu": {

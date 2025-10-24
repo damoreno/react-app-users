@@ -1,5 +1,5 @@
 //Rutas para manejar redireccionamiento
-export const APP_ROUTERS = Object.freeze({
+export const APP_ROUTES = Object.freeze({
     //Rutas publicas
     LOGIN: "/login",
     REGISTER: "/register",
@@ -7,6 +7,7 @@ export const APP_ROUTERS = Object.freeze({
     //Rutas Privadas
     HOME: "/home",
     USER: "/user",
+    ADDUSER:"/add-user"
 
 })
 
@@ -15,4 +16,5 @@ export const APP_ROUTERS = Object.freeze({
 export const API_ROUTES = Object.freeze({
     LOGIN: "/auth/login",
     REGISTER: "/users/user",
+    USER_LIST: "/users",
 });

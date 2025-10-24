@@ -1,12 +1,14 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from '../pages/home/Home'
-import User from '../pages/user/User';
 import Login from '../pages/login/Login';
 import Error404 from '../pages/Error404';
 import PublicRoute from './PublicRoute';
 import PrivateRoute from './PrivateRoute';
-import { APP_ROUTERS } from '../../common/utils/router';
+import { APP_ROUTES } from '../../common/utils/router';
 import Register from '../pages/register/Register';
+import TableGrid from '../pages/user/components/TableGrid';
+import AddUser from '../pages/user/components/AddUser';
+import User from '../pages/user/User';
 
 
 
@@ -16,31 +18,36 @@ const AppRouters = () => {
             <Routes>
 
                 {/* Rutas publicas */}
-                <Route path={APP_ROUTERS.LOGIN} element={
+                <Route path={APP_ROUTES.LOGIN} element={
                     <PublicRoute>
                         <Login />
                     </PublicRoute>
                 }
                 ></Route>
-                <Route path={APP_ROUTERS.REGISTER} element={
+                <Route path={APP_ROUTES.REGISTER} element={
                     <PublicRoute>
                         <Register />
                     </PublicRoute>
                 }
                 ></Route>
                 {/* Rutas privadas */}
-                <Route path={APP_ROUTERS.HOME} element={
+                <Route path={APP_ROUTES.HOME} element={
                     <PrivateRoute>
                         <Home />
                     </PrivateRoute>
                 }>
 
                 </Route>
-                <Route path={APP_ROUTERS.USER} element={
+                <Route path={APP_ROUTES.USER} element={
                     <PrivateRoute>
-                        <User />
+                        <User></User>
                     </PrivateRoute>}>
                 </Route>
+                <Route path={APP_ROUTES.ADDUSER} element={
+                    <PrivateRoute>
+                        <AddUser />
+                    </PrivateRoute>}>
+                </Route>                
                 {/* Ruta 404*/}
                 <Route path="*" element={<Error404 />}></Route>
             </Routes>

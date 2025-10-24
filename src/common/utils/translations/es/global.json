@@ -7,7 +7,8 @@
     "title": {
         "login": "Iniciar sesión",
         "welcome": "Bienvenido",
-        "userList": "Lista de usuarios"
+        "userList": "Lista de usuarios",
+        "addUser": "Agregar usuario"
     },
 
     "label": {
@@ -21,7 +22,9 @@
     "button": {
         "login": "Iniciar sesión",
         "LogOut": "Cerrar la sesión",
-        "register": "REGISTRATE"
+        "register": "REGISTRATE",
+        "addUser": "Agregar usuario",
+        "back": "Volver"
     },
 
     "menu": {
