@@ -13,17 +13,24 @@
 
     "label": {
         "name": "Name",
-        "mail": "Mail",
+        "fullname": "Full name",
+        "email": "Mail",       
         "password": "Password",
-        "confirmPassword": "Confirm Password",
-        "itemsPerPagination": "Row per page:"
+        "passwordConfirmation": "Confirm Password",
+        "role": "Role",
+        "itemsPerPagination": "Row per page:",
+        "status": "Status",
+        "google": "Google"
     },
 
     "button": {
         "login": "Login",
         "LogOut": "Log out",
         "register": "REGISTER",
-        "back": "Volver"
+        "back": "Volver",
+        "delete": "Delete",
+        "save": "Save",
+        "cancel": "Cancelar"
     },
     
     "menu": {
@@ -42,7 +49,8 @@
         "admin": "Administrator",
         "user": "User",
         "sales": "Sales",
-        "active": "Active"
+        "active": "Active",
+        "inactive": "Inactivo"
     },
 
     "helperText": {

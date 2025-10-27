@@ -16,5 +16,6 @@ export const APP_ROUTES = Object.freeze({
 export const API_ROUTES = Object.freeze({
     LOGIN: "/auth/login",
     REGISTER: "/users/user",
-    USER_LIST: "/users",
+    USERS: "/users",
+    ROLES: "/roles"
 });

@@ -4,7 +4,7 @@ import usersListAdapter from "../adapters/in/usersListAdapter";
 export default class UsersListRepository{
     static async getUsersList(page, limit){       
         try {
-            const {body, resp} =  await new FetchData().GET(`${API_ROUTES.USER_LIST}?page=${page}&limit=${limit}`);
+            const {body, resp} =  await new FetchData().GET(`${API_ROUTES.USERS}?page=${page}&limit=${limit}`);
             const adapterResponse = {
                 totalUsers: resp.totalUsers,
                 users: resp.users.map(user => usersListAdapter(user))

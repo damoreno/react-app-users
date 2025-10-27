@@ -105,7 +105,7 @@ useEffect(() => {
         {/* caja de texto con email */}
         <TextField
           id="email"
-          label={t("label.mail")}
+          label={t("label.email")}
           variant="standard"
           value={email}
           error={!!emailError}
@@ -153,7 +153,7 @@ useEffect(() => {
         />
         <TextField
           id="confirmPassword"
-          label={t("label.confirmPassword")}
+          label={t("label.passwordConfirmation")}
           variant="standard"
           type={showConfirmPassword ? "text" : "password"}
           value={confirmPassword}

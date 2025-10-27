@@ -1,21 +1,21 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Box, Button, TextField, Typography, Paper, MenuItem, FormControlLabel, Switch } from '@mui/material'
 import { useTranslation } from 'react-i18next'
-import { useNavigate } from 'react-router-dom'
 import { styles } from '../../../../common/styles/constants/theme'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import AddIcon from '@mui/icons-material/Add'
 import { APP_ROUTES } from '../../../../common/utils/router'
-
-const rolesMock = [
-  { _id: '6562179ab537f4d9a111e622', rol: 'SALES_ROLE', name: 'Ventas' },
-  { _id: '656216f1b537f4d9a111e620', rol: 'USER_ROLE', name: 'Usuario' },
-  { _id: '65621682b537f4d9a111e61e', rol: 'ADMIN_ROLE', name: 'Administrador' },
-]
+import RolesListUseCase from '../../../../domain/roles/rolesListUseCase'
+import { useNavigate } from 'react-router-dom'
+import UserCreateAdminUseCase from '../../../../domain/user/userCreateAdminUseCase'
 
 const AddUser = () => {
+  const [loading, setLoading] = useState(false)
   const [t] = useTranslation('global')
   const navigate = useNavigate()
+  const [rolesList, setRolesList] = useState([])
+  const {roles = []} = rolesList;
+  const [usersList, setUsersList] = useState({})
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -25,7 +25,7 @@ const AddUser = () => {
     state: true,
     google: false
   })
-  console.log(form)
+
   const handleChange = (e) => {
     const { name, value } = e.target
     setForm({
@@ -42,10 +42,51 @@ const AddUser = () => {
     })
   }
 
+  const fetchRoles = async () => {
+    const rolesListUseCase = new RolesListUseCase()
+    try {
+      // Llamar al repositorio para obtener la lista de usuarios
+      const { body, adapterResponse } = await rolesListUseCase.call();
+      if (!body.ok) {
+        setRolesList({ totalRoles: 0, roles: [] });
+        throw new Error('Error al obtener la lista de roles');
+      }
+      setRolesList(adapterResponse)
+    } catch (error) {
+      console.error('Error fetching roles:', error)
+    }
+  }
 
-  const handleSubmit = () => {
+useEffect(() => {
+  fetchRoles()
+}, [])
+
+
+  const handleSubmit = async () => {
     // Lógica para manejar el envío del formulario
     console.log('Formulario enviado:')
+    const userCreateAdminUseCase = new UserCreateAdminUseCase();
+    const payload = {
+      name: form.name,
+      email: form.email,
+      password: form.password,
+      img:'',
+      rol: form.rol,
+      state: form.state,
+      google: form.google
+    }
+
+      // Llamar al repositorio para obtener la lista de usuarios
+      try{
+      const {body, resp} = await userCreateAdminUseCase.call(payload)
+      if(!body.ok){
+        throw new Error('Error al crear el usuario')
+      }
+      navigate(APP_ROUTES.USER)
+    }catch(error){
+      console.log(error)
+    }
+
   }
 
   return (
@@ -141,7 +182,7 @@ const AddUser = () => {
           onChange={handleChange}
           fullWidth
         >
-          {rolesMock.map(role => (
+          {roles.map(role => (
             <MenuItem key={role._id} value={role.rol}>
               {role.name}
             </MenuItem>

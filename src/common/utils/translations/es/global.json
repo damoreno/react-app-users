@@ -13,10 +13,14 @@
 
     "label": {
         "name": "Nombre",
-        "mail": "Correo",
+        "fullName": "Nombre completo",
+        "email": "Mail",       
         "password": "Contraseña",
-        "confirmPassword": "Confirmación de contraseña",
-        "itemsPerPagination": "Fila por página:"
+        "passwordConfirmation": "Confirmación de contraseña",
+        "role": "Rol",
+        "itemsPerPagination": "Fila por página:",
+        "status": "Estado",
+        "google": "Registrado con google"
     },
 
     "button": {
@@ -24,7 +28,10 @@
         "LogOut": "Cerrar la sesión",
         "register": "REGISTRATE",
         "addUser": "Agregar usuario",
-        "back": "Volver"
+        "back": "Volver",
+        "delete": "Eliminar",
+        "save": "Guardar",
+        "cancel": "Cancelar"
     },
 
     "menu": {
@@ -43,7 +50,8 @@
         "admin": "Administrador",
         "user": "usuario",
         "sales": "Ventas",
-        "active": "Activo"
+        "active": "Activo",
+        "inactive": "Inactivo"
     },
 
     "helperText": {

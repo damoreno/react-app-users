@@ -2,7 +2,7 @@ import { UserListModel } from "../../model/userListModel";
 
 const usersListAdapter = (user) => {
 
-    const userListType = new UserListModel(user.uuid, user.name, user.email, user.img, user.rol, user.permissions, user.state, user.google)
+    const userListType = new UserListModel(user)
 
     return Object.assign({}, userListType);
 };

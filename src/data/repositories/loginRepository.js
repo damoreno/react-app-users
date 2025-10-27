@@ -23,7 +23,7 @@ export default class LoginRepository{
                 throw new Error("Authentication failed")
             }
             const result = await response.json()
-
+            console.log(result);
             return result;
         } catch (error) {
             console.log("LoginRepository.login Error", error)

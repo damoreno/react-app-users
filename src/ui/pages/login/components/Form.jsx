@@ -55,7 +55,7 @@ const { handleSubmit } = useAuthHandler(
         {/* caja de texto con email */}
         <TextField
           id="email"
-          label={t("label.mail")}
+          label={t("label.email")}
           variant="standard"
           // value={email}
           // value="admin@gmail.com"

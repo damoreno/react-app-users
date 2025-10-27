@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Home from '../pages/home/Home'
 import Login from '../pages/login/Login';
 import Error404 from '../pages/Error404';
@@ -16,6 +16,9 @@ const AppRouters = () => {
     return (
         <BrowserRouter>
             <Routes>
+                {/* Ruta raíz que redirige a login */}
+                <Route path="/" element={<Navigate to={APP_ROUTES.LOGIN} />} />
+
 
                 {/* Rutas publicas */}
                 <Route path={APP_ROUTES.LOGIN} element={
@@ -36,7 +39,6 @@ const AppRouters = () => {
                         <Home />
                     </PrivateRoute>
                 }>
-
                 </Route>
                 <Route path={APP_ROUTES.USER} element={
                     <PrivateRoute>

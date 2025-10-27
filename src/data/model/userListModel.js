@@ -1,13 +1,14 @@
 export class UserListModel{
-    constructor(uuid, name, email, img, rol, permissions, state, google)
+    constructor(user)
     {
-        this.uuid = uuid;
-        this.name = name;
-        this.email = email;
-        this.img = img;
-        this.rol = rol;
-        this.permissions = permissions;
-        this.state = state;
-        this.google = google;
+        this.uid = user.uid;
+        this.name = user.name;
+        this.email = user.email;
+        this.img = user.img;
+        this.rol = user.rol;
+        this.state = user.state;
+        this.google = user.google;
+        this.createdAt = user.createdAt;
+        this.updatedAt = user.updatedAt;    
     }
 }
