@@ -7,15 +7,13 @@ import AddIcon from '@mui/icons-material/Add'
 import { APP_ROUTES } from '../../../../common/utils/router'
 import RolesListUseCase from '../../../../domain/roles/rolesListUseCase'
 import { useNavigate } from 'react-router-dom'
-import UserCreateAdminUseCase from '../../../../domain/user/userCreateAdminUseCase'
+import useAddUserHandler from '../../../hooks/useAddUserHandler'
 
 const AddUser = () => {
-  const [loading, setLoading] = useState(false)
   const [t] = useTranslation('global')
   const navigate = useNavigate()
   const [rolesList, setRolesList] = useState([])
   const {roles = []} = rolesList;
-  const [usersList, setUsersList] = useState({})
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -61,36 +59,13 @@ useEffect(() => {
   fetchRoles()
 }, [])
 
-
-  const handleSubmit = async () => {
-    // Lógica para manejar el envío del formulario
-    console.log('Formulario enviado:')
-    const userCreateAdminUseCase = new UserCreateAdminUseCase();
-    const payload = {
-      name: form.name,
-      email: form.email,
-      password: form.password,
-      img:'',
-      rol: form.rol,
-      state: form.state,
-      google: form.google
-    }
-
-      // Llamar al repositorio para obtener la lista de usuarios
-      try{
-      const {body, resp} = await userCreateAdminUseCase.call(payload)
-      if(!body.ok){
-        throw new Error('Error al crear el usuario')
-      }
-      navigate(APP_ROUTES.USER)
-    }catch(error){
-      console.log(error)
-    }
-
-  }
+const {handleSubmit} = useAddUserHandler(form)
 
   return (
-    <Box>
+    <Box sx={{
+            maxHeight: '90vh',
+            overflowY: 'auto'
+        }}>
       {/* Cabecera */}
       <Box
         sx={{

@@ -47,7 +47,6 @@ const cleanForm = useCallback(() => {
     
 // Hook para manejo de traduccion      
 const [t] = useTranslation("global");
-// Hook para manejar la redireccion del usuario autenticado al sitio privado
 const { handleSubmit, successMessage } = useRegisterHandler(
   validateForm,
   name,

@@ -56,10 +56,10 @@ const useRegisterHandler = (
     startSpinnerLogin();
     console.log("Inicia el spinner")
     try{
-      // TODO: Debe llamar al usecase que realiza la persistencia en DB
+      // Debe llamar al usecase que realiza la persistencia en DB
       const registerUseCase = new RegisterUseCase();
 
-      //TODO: Si la respuesta es exitosa debe dejar pasar sino lanza error
+      //Si la respuesta es exitosa debe dejar pasar sino lanza error
       const registerResponse = await registerUseCase.call(name, email, password);
       setUserCreated(registerResponse)
       console.log({userCreated})

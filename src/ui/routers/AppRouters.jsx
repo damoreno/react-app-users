@@ -6,7 +6,6 @@ import PublicRoute from './PublicRoute';
 import PrivateRoute from './PrivateRoute';
 import { APP_ROUTES } from '../../common/utils/router';
 import Register from '../pages/register/Register';
-import TableGrid from '../pages/user/components/TableGrid';
 import AddUser from '../pages/user/components/AddUser';
 import User from '../pages/user/User';
 

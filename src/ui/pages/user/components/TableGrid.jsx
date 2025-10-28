@@ -134,7 +134,9 @@ const TableGrid = () => {
     const {body, resp} = await deleteUserUseCase.call(user.uid)
     if(body.ok){
         console.log(body, resp)
-        setUserDeleteSuccessMessage(resp.msj)
+        // setUserDeleteSuccessMessage(resp.msj)
+        setUserDeleteSuccessMessage("Operacion relizada con exito!!")
+
         setTimeout(() => setUserDeleteSuccessMessage(''), 3000);
         fecthUsers()
     }

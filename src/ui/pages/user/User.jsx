@@ -4,7 +4,10 @@ import TableGrid from "./components/TableGrid";
 
 const User = () => {
     return (
-        <Box>
+        <Box sx={{
+            maxHeight: '90vh',
+            overflowY: 'auto'
+        }}>
             <Head></Head>
             <TableGrid />
         </Box>

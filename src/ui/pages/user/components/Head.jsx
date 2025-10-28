@@ -34,7 +34,6 @@ export const Head = () => {
             padding: '6px 16px',
           }}
           onClick={() => navigate(APP_ROUTES.ADDUSER)}
-
         >
           {t('button.addUser')}
         </Button>
