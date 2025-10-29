@@ -8,7 +8,8 @@
         "login": "Iniciar sesión",
         "welcome": "Bienvenido",
         "userList": "Lista de usuarios",
-        "addUser": "Agregar usuario"
+        "addUser": "Agregar usuario",
+        "editUser": "Editar usuario"
     },
 
     "label": {

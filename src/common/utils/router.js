@@ -7,7 +7,8 @@ export const APP_ROUTES = Object.freeze({
     //Rutas Privadas
     HOME: "/home",
     USER: "/user",
-    ADDUSER:"/add-user"
+    ADDUSER:"/add-user",
+    EDIT_USER: "/edit-user/:id",
 
 })
 

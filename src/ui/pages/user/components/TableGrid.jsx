@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import UsersListUseCase from '../../../../domain/user/usersListUseCase'
 import {
@@ -20,13 +20,17 @@ import {
   Collapse,
   Alert
 } from '@mui/material'
+import EditIcon from '@mui/icons-material/Edit'
 import { getRandomColor } from '../../../helpers/getRandomColor'
 
 import NestedModal from '../../../components/ModalNotification'
 import DeleteUserUseCase from '../../../../domain/user/deleteUserUseCase'
+import { useNavigate } from 'react-router-dom'
+import { APP_ROUTES } from '../../../../common/utils/router'
 
 const TableGrid = () => {
   const [t] = useTranslation('global')
+  const navigate = useNavigate()
   const [page, setPage] = useState(0)
   const [rowsPerPage, setRowsPerPage] = useState(5)
   const [loading, setLoading] = useState(false)
@@ -102,30 +106,34 @@ const TableGrid = () => {
     padding: isSmallScreen ? '8px' : '16px',
   }
 
+const editUser = (user) =>{
+  navigate(`/edit-user/${user.uid}`)
+}
+
   // --- Lógica de obtención de datos ---
-  const fecthUsers = async () => {
-    const usersListUseCase = new UsersListUseCase()
-    setLoading(true)
-    try {
-      // Llamar al repositorio para obtener la lista de usuarios
-      const { body, adapterResponse } = await usersListUseCase.call(page, rowsPerPage)
-      
-      if (!body.ok) {
-        setUsersList({ totalUsers: 0, users: [] })
-        throw new Error('Error al obtener la lista de usuarios')
+  const fecthUsers = useCallback(async () => {
+      const usersListUseCase = new UsersListUseCase()
+      setLoading(true)
+      try {
+        // Llamar al repositorio para obtener la lista de usuarios
+        const { body, adapterResponse } = await usersListUseCase.call(page, rowsPerPage)
+        
+        if (!body.ok) {
+          setUsersList({ totalUsers: 0, users: [] })
+          throw new Error('Error al obtener la lista de usuarios')
+        }
+        setUsersList(adapterResponse ?? { totalUsers: 0, users: [] })
+      } catch (error) {
+        console.error('Error fetching users:', error)
+      } finally {
+        setLoading(false)
       }
-      setUsersList(adapterResponse ?? { totalUsers: 0, users: [] })
-    } catch (error) {
-      console.error('Error fetching users:', error)
-    } finally {
-      setLoading(false)
-    }
-  }
+    }, [page, rowsPerPage])
 
   // Efecto: obtiene los datos cada vez que cambian la página o la cantidad de filas
   useEffect(() => {
     fecthUsers()
-  }, [page, rowsPerPage])
+  }, [fecthUsers])
 
   const deleteUser = async (user) => {
     console.log('Eliminar usuario con ID:', user.uid)
@@ -274,8 +282,12 @@ const TableGrid = () => {
                     if (column.dataKey === 'actions') {
                       return (
                         <TableCell key={column.dataKey} align="center">
-                          <NestedModal user={user} actionDelete={deleteUser}>
-                         </NestedModal>
+                          <Box sx={{ display: 'flex', justifyContent: 'center', gap: 1 }}>
+                            {user.state && (
+                              <NestedModal user={user} actionDelete={deleteUser} />
+                            )}
+                            <EditIcon sx={{ cursor: 'pointer', color: 'action.active' }} onClick={() =>{editUser(user)}}/>
+                          </Box>
                         </TableCell>
                       )
                     }
@@ -306,5 +318,6 @@ const TableGrid = () => {
     </Box>
   )
 }
+
 
 export default TableGrid

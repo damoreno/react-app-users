@@ -8,7 +8,8 @@
         "login": "Login",
         "welcome": "Welcome",
         "userList": "User List",
-        "addUser": "Add User"
+        "addUser": "Add User",
+        "editUser": "Edit User"
     },
 
     "label": {

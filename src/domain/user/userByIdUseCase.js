@@ -1,8 +1,8 @@
 import UserRepository from "../../data/repositories/userRepository";
 
-export default class DeleteUserUseCase{
+export default class UserByIdUseCase{
     async call(uuid){
-        return await UserRepository.deleteUser(uuid);
+        return await UserRepository.getById(uuid);
     }
 
 }

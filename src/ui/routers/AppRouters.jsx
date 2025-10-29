@@ -8,6 +8,7 @@ import { APP_ROUTES } from '../../common/utils/router';
 import Register from '../pages/register/Register';
 import AddUser from '../pages/user/components/AddUser';
 import User from '../pages/user/User';
+import EditUser from '../pages/user/components/EditUser';
 
 
 
@@ -48,7 +49,12 @@ const AppRouters = () => {
                     <PrivateRoute>
                         <AddUser />
                     </PrivateRoute>}>
-                </Route>                
+                </Route>   
+                <Route path={APP_ROUTES.EDIT_USER} element={
+                    <PrivateRoute>
+                        <EditUser />
+                    </PrivateRoute>}>
+                </Route>                                
                 {/* Ruta 404*/}
                 <Route path="*" element={<Error404 />}></Route>
             </Routes>

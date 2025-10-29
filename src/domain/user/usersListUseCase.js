@@ -1,8 +1,8 @@
-import UsersListRepository from "../../data/repositories/usersListRepository";
+import UserRepository from "../../data/repositories/userRepository";
 
 export default class UsersListUseCase{
     async call(page, limit){
-        return await UsersListRepository.getUsersList(page, limit);
+        return await UserRepository.getUsersList(page, limit);
     }
 
 }
